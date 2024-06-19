@@ -1,10 +1,9 @@
-<p align="center">
- <img src="https://raw.githubusercontent.com/pkosiec/website/main/static/img/logo.png" width="75">
-</p>
+> [!NOTE]  
+> This website is built from the [Paweł Kosiec's awesome personal website](https://github.com/pkosiec/website).
 
-# Paweł Kosiec - Personal Website
+# Personal Website
 
-This repository contains source code of the Paweł Kosiec's personal website. To see it live, navigate to the [kosiec.dev](https://kosiec.dev) address.
+This repository contains source code of the Tarek's personal website. Please see it [here](https://liuyuweitarek.github.io) in the future.
 
 ## Development
 

@@ -1,7 +1,7 @@
-# Personal Website
-
 > [!NOTE]  
-> This website is built from the [Paweł Kosiec's awesomepersonal website](https://kosiec.dev).
+> This website is built from the [Paweł Kosiec's awesome personal website](https://github.com/pkosiec/website).
+
+# Personal Website
 
 This repository contains source code of the Tarek's personal website. Please see it [here](https://liuyuweitarek.github.io) in the future.
 

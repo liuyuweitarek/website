@@ -8,6 +8,7 @@ on:
 
 jobs:
   deploy:
+    if: github.repository_owner == 'liuyuweitarek'
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     permissions:

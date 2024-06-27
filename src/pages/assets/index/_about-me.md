@@ -1,7 +1,5 @@
-I&nbsp;write back-end applications in **Go** and modern front-ends using **TypeScript** (**React.js**). I design and implement **GraphQL**, **gRPC** and **REST** APIs.
+I am currently preparing for my PhD program application and <ins>am interested in opportunities as a **research assistant**</ins> in Human Behavior Remote Sensing, Human-Robot Interaction, or Human-Computer Interaction. I am very willing to learn hardware and firmware development if it is needed for the research.
 
-I&nbsp;work in a cloud-native environment in the "you build it, you run it" model. Apart from building microservices, I use and extend **Kubernetes**. I am both [Certified Kubernetes Application Developer](https://www.youracclaim.com/badges/4ef650a8-2c5d-48df-bdc7-d7bafdd9e4ec) and [Certified Kubernetes Administrator](https://www.youracclaim.com/badges/32059797-c35c-4c49-bcc3-d27268a530df).
+My research interests lie at the intersection of Psychology, Human-Robot Interaction, and Digital Phenotyping. I have built systems and software interfaces focused on solving the replication issue between the lab and the real world by modeling authentic human behavior and implementing psychological paradigms into daily life.
 
-In 2018, I&nbsp;have completed a&nbsp;master's in Computer Science at Silesian University of Technology.
-
-I'm open source and cloud-native enthusiast. That's why I'm a&nbsp;co-organizer of the&nbsp;[Gophers Silesia](https://www.meetup.com/GophersSilesia) meetup, which is a&nbsp;local community interested in Go & cloud-native topics.
+Previously, I was an open-source developer and worked as a natural language processing engineer. I received my Master's degree in Psychology from [National Taiwan University](https://www.ntu.edu.tw/), where I was a member of the Modeling and Informatics Lab under the advisement of [Prof. Tsung-Ren Huang](http://www.psy.ntu.edu.tw/index.php/members/faculty/fulltime-faculty/302-huang-tsung-ren). Additionally, I served as a student research assistant for the [Center for Artificial Intelligence and Advanced Robotics](https://ai.ntu.edu.tw/en/about-us/).

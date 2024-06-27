@@ -8,7 +8,7 @@ export default function FooterWrapper(props) {
 
   return (
     <>
-      <Newsletter data={siteConfig.customFields.newsletter} />
+      {/* <Newsletter data={siteConfig.customFields.newsletter} /> */}
       <Footer {...props} />
     </>
   );

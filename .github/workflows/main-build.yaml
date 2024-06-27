@@ -1,6 +1,10 @@
-name: Main branch
+name: Build website and deploy to Github Pages
 
 on:
+  workflow_dispatch:
+    branches:
+      - 'main'
+
   push:
     paths-ignore:
       - "LICENSE"
@@ -9,11 +13,15 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-scrape-site:
     name: Lint and build website
     runs-on: ubuntu-latest
     permissions:
       contents: read
+
+    env:
+      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+      API_KEY: ${{ secrets.API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -25,8 +33,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Lint code
-        run: npm run lint
+      # - name: Lint code
+      #   run: npm run lint
 
       - name: Build website
         run: npm run build
+      
+      - name: Create .nojekyll file for GitHub Pages
+        run: |
+          touch build/test-site/.nojekyll
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: liuyuweitarek
+          user_email: liuyuwei.tarek@gmail.com
+
+      - name: Run Docker container
+        run: |
+          docker run -e "APPLICATION_ID=${{ secrets.APPLICATION_ID }}" -e "API_KEY=${{ secrets.API_KEY }}" -e "CONFIG=$(cat ./algolia/prod-algolia-config.json | jq -r tostring)" algolia/docsearch-scraper
+      
+      

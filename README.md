@@ -1,3 +1,9 @@
+> [!NOTE]
+> Update-2024-06-27
+>
+> Due to issues with the forked project's GitHub Action workflow, I have migrated my personal website to a [new repository]((https://github.com/liuyuweitarek/liuyuweitarek.github.io)). See more details in the [discussion](https://github.com/orgs/community/discussions/26704).
+
+
 # Personal Website
 
 This repository contains source code of the Tarek's personal website, which is built based on [Docusaurus 2](https://docusaurus.io/), a modern static website generator. 

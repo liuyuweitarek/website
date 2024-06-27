@@ -1,17 +1,17 @@
 {
-  "name": "kosiec.dev",
+  "name": "liuyuweitarek",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Paweł Kosiec",
-    "url": "https://kosiec.dev",
-    "email": "pawel@kosiec.dev"
+    "name": "Tarek Liu",
+    "url": "https://liuyuweitarek.github.io",
+    "email": "liuyuwei.tarek@gmail.com"
   },
   "scripts": {
     "postinstall": "npm run setup-hooks",
     "setup-hooks": "git config core.hooksPath ./scripts/git-hooks",
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start --host 0.0.0.0 --port 3006",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -28,15 +28,20 @@
     "prettier:fix": "prettier --write ."
   },
   "dependencies": {
+    "@docsearch/js": "^3.6.0",
     "@docusaurus/core": "^3.1.1",
     "@docusaurus/plugin-ideal-image": "^3.1.1",
     "@docusaurus/preset-classic": "^3.1.1",
+    "@docusaurus/theme-classic": "^3.4.0",
+    "@docusaurus/theme-live-codeblock": "^3.4.0",
+    "@docusaurus/theme-search-algolia": "^3.4.0",
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.0",
     "docusaurus-plugin-sass": "^0.2.2",
     "prism-react-renderer": "^2.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "remark-math": "^6.0.0",
     "sass": "^1.70.0"
   },
   "devDependencies": {
@@ -44,6 +49,7 @@
     "@docusaurus/tsconfig": "^3.1.1",
     "@docusaurus/types": "^3.1.1",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.5",

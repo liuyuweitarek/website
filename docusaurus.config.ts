@@ -3,37 +3,42 @@ import { themes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
+require('dotenv').config()
+
 const config: Config = {
-  title: "Paweł Kosiec, Full-stack Cloud Developer",
+  title: "Tarek Liu, Psychoinformatics Engineer",
   tagline:
-    "Software engineer interested in personal growth and tech trends. Cloud-native and open-source enthusiast.",
-  url: "https://kosiec.dev",
+    "Researcher interested in personal growth and tech trends. Tracking authentic behavior, mapping minds, bridging Lab findings to real-world impact.",
+  url: "https://liuyuweitarek.github.io",
   baseUrl: "/",
+  staticDirectories: ['static', 'public'],
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config
-  organizationName: "pkosiec",
-  projectName: "website",
-
-  customFields: {
-    newsletter: {
-      action:
-        "https://dev.us14.list-manage.com/subscribe/post?u=4ed0fd1909674fddee53ac3e7&amp;id=dfdcae99f5&amp;f_id=004887e0f0",
-      method: "post",
-      emailFieldName: "EMAIL",
-      firstNameFieldName: "FNAME",
-      submitButtonName: "subscribe",
-      tosURL: "https://mailchimp.com/legal/terms/",
-      privacyPolicyURL: "https://www.intuit.com/privacy/statement/",
-      serviceName: "Mailchimp",
-    },
-  },
+  organizationName: "liuyuweitarek",
+  projectName: "liuyuweitarek.github.io",
+  trailingSlash: false,
 
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
+  },
+  customFields: {
+    // "ALGOLIA_APPLICATION_ID": process.env.APPLICATION_ID,
+    // "ALGOLIA_API_KEY": process.env.API_KEY
+    // newsletter: {
+    //   action:
+    //     "https://dev.us14.list-manage.com/subscribe/post?u=4ed0fd1909674fddee53ac3e7&amp;id=dfdcae99f5&amp;f_id=004887e0f0",
+    //   method: "post",
+    //   emailFieldName: "EMAIL",
+    //   firstNameFieldName: "FNAME",
+    //   submitButtonName: "subscribe",
+    //   tosURL: "https://mailchimp.com/legal/terms/",
+    //   privacyPolicyURL: "https://www.intuit.com/privacy/statement/",
+    //   serviceName: "Mailchimp",
+    // },
   },
   plugins: [
     "docusaurus-plugin-sass",
@@ -52,38 +57,71 @@ const config: Config = {
     [
       "@docusaurus/preset-classic",
       {
-        docs: false,
+        docs: {
+          path: 'docs',
+          breadcrumbs: true,
+          routeBasePath: 'docs',
+          include: ['**/*.md', '**/*.mdx'],
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
+          sidebarPath: require.resolve('./sidebars.js'),
+          docsRootComponent: '@theme/DocsRoot',
+          docVersionRootComponent: '@theme/DocVersionRoot',
+          docRootComponent: '@theme/DocRoot',
+          docItemComponent: '@theme/DocItem',
+          remarkPlugins: [require('remark-math')],
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: true,
+          lastVersion: 'current',
+          onlyIncludeVersions: ['current'],
+        },
         blog: {
+          postsPerPage: 5,
           showReadingTime: true,
-          editUrl: "https://github.com/pkosiec/website/tree/main/",
+          editUrl: "https://github.com/liuyuweitarek/liuyuweitarek.github.io/tree/main/",
           feedOptions: {
             type: "all",
-            copyright: `Copyright © ${new Date().getFullYear()} Paweł Kosiec`,
+            copyright: `Copyright © ${new Date().getFullYear()} Tarek Liu. All rights reserved.`,
           },
         },
         theme: {
-          customCss: [require.resolve("./src/css/custom.scss")],
+          customCss: [
+            require.resolve("./src/css/custom.scss"), 
+            require.resolve("./src/css/doc-overview-page.scss")
+          ],
         },
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
+    // announcementBar: {
+    //   id: 'support_us',
+    //   content:
+    //     '🐧 <a target="_blank" rel="noopener noreferrer" href="#">Send Me to Antarctica!</a> 🐧',
+    //   backgroundColor: '#040D12',
+    //   textColor: '#78D6C6',
+    //   isCloseable: true,
+    // },
     image: "img/logo-small.png",
     metadata: [
       {
         name: "description",
         content:
-          "I am software developer interested in technology and gadgets. Cloud-native and open-source enthusiast.",
+          "I am researcher interested in personal growth and tech trends. Tracking authentic behavior, mapping minds, bridging Lab findings to real-world impact.",
       },
       {
         name: "keywords",
         content:
-          "fullstack,frontend,backend,developer,engineer,go,golang,javascript,graphql,grpc,rest,react,reactjs,kubernetes,devops,cloud,cloud-native,cka,ckad,open-source,gophers,silesia",
-      },
-      {
-        name: "twitter:card",
-        content: "summary",
+          "backend,developer,engineer,grpc,rest,docker,kubernetes,devops,open-source",
       },
     ],
     colorMode: {
@@ -91,35 +129,57 @@ const config: Config = {
     },
     navbar: {
       hideOnScroll: false,
-      title: "Paweł Kosiec",
+      title: "Tarek Liu",
       logo: {
-        alt: "Paweł Kosiec Logo",
-        src: "img/logo.svg",
-        srcDark: "img/logo-white.svg",
+        alt: "Tarek Liu Logo",
+        src: "img/logo.png",
+        srcDark: "img/logo.png",
       },
       items: [
         { to: "/blog", label: "Blog", position: "left" },
+        {
+          to: '/docs/note',
+          label: 'Note',
+          position: 'left',
+        },
         { to: "/projects", label: "Projects", position: "left" },
         { to: "/talks", label: "Talks", position: "left" },
+        {
+          href: 'https://github.com/liuyuweitarek',
+          position: 'right',
+          label: 'Github',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
+        {
+          href: 'https://docs.google.com/document/d/1mNkcT_MbvsATqlk8M02iyPb2zpSEM1q1GZ2r8tK28Mo/edit?usp=sharing',
+          position: 'right',
+          label: 'Resume',
+          className: 'header-resume-link',
+          'aria-label': 'Resume',
+        },
       ],
     },
     footer: {
-      style: "light",
       links: [
         {
           title: "Connect",
           items: [
             {
               label: "Email me",
-              href: "mailto:pawel@kosiec.dev",
+              href: "mailto:liuyuwei.tarek@gmail.com",
+            },
+            {
+              label: "Github",
+              href: "https://github.com/liuyuweitarek",
             },
             {
               label: "LinkedIn",
-              href: "https://www.linkedin.com/in/pkosiec",
+              href: "https://www.linkedin.com/in/liuyuweitarek",
             },
             {
-              label: "Twitter",
-              href: "https://twitter.com/pkosiec",
+              label: "HuggingFace",
+              href: "https://huggingface.co/liuyuweitarek",
             },
           ],
         },
@@ -131,12 +191,29 @@ const config: Config = {
               to: "/",
             },
             {
+              label: "Blog",
+              to: "/blog",
+            },
+            {
+              label: "Note",
+              to: "/note",
+            },
+            {
               label: "Projects",
               to: "/projects",
             },
             {
               label: "Talks",
               to: "/talks",
+            },
+          ],
+        },
+        {
+          title: "Downloads",
+          items: [
+            {
+              label: "Resume",
+              href: "https://docs.google.com/document/d/1mNkcT_MbvsATqlk8M02iyPb2zpSEM1q1GZ2r8tK28Mo/edit?usp=sharing",
             },
           ],
         },
@@ -157,14 +234,32 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: "Sponsor",
+          items: [
+            {
+              html: `
+                <a href="https://www.buymeacoffee.com/liuyuweitarek" target="_blank">
+                  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+                </a>
+              `,
+            },
+          ]
+        }
       ],
-      copyright: `Copyright © 2012-${new Date().getFullYear()} Paweł Kosiec.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Tarek Liu. All rights reserved.`,
     },
     algolia: {
-      appId: "5DLGGOZ8KA",
-      apiKey: "67ab853aa6285e51112a649d3cb51928",
-      indexName: "kosiec",
+      appId: process.env.APPLICATION_ID,
+      apiKey: process.env.API_KEY,
+      indexName: process.env.INDEX_NAME,
+      contextualSearch: true,
     },
+    themes: [
+      require.resolve('@docusaurus/theme-live-codeblock'),
+      require.resolve('@docusaurus/theme-search-algolia'),
+      require.resolve('@docusaurus/theme-classic'), 
+    ],
     prism: {
       theme: themes.github,
       darkTheme: themes.dracula,
